@@ -34,10 +34,12 @@ class CallOverlayActivity : Activity() {
         // Log received data
         val callType = intent.getStringExtra("callType") ?: "Unknown"
         val phoneNumber = intent.getStringExtra("phoneNumber") ?: "Unknown"
-        Log.d("CallOverlayActivity", "Call Type: $callType, Phone Number: $phoneNumber")
+        val contactName = intent.getStringExtra("contactName") ?: "Unknown"
+        Log.d("CallOverlayActivity", "Call Type: $callType, Phone Number: $phoneNumber , Contact Name: $contactName")
 
         findViewById<TextView>(R.id.callTypeText).text = "$callType Call"
         findViewById<TextView>(R.id.phoneNumberText).text = phoneNumber
+        findViewById<TextView>(R.id.contactName).text = contactName
         findViewById<Button>(R.id.closeButton).setOnClickListener {
             finish()
         }

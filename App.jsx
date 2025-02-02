@@ -27,6 +27,12 @@ const App = () => {
       description: 'Access call history for tracking'
     },
     {
+      key: 'readContacts',
+      permission: PERMISSIONS.ANDROID.READ_CONTACTS,
+      title: 'Read Contacts',
+      description: 'Required to access and display contacts'
+    },    
+    {
       key: 'answerPhoneCalls',
       permission: PERMISSIONS.ANDROID.ANSWER_PHONE_CALLS,
       title: 'Answer Calls',
