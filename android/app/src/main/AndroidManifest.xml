@@ -14,6 +14,8 @@
 
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 
     <application
@@ -24,13 +26,23 @@
       android:allowBackup="false"
       android:theme="@style/AppTheme"
       android:supportsRtl="true">
+
         <activity
             android:name=".CallOverlayActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:exported="false"
+            android:exported="true"
             android:excludeFromRecents="true"
             android:showOnLockScreen="true"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:turnScreenOn="true"
+            android:showWhenLocked="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <receiver
             android:name=".CallReceiver"

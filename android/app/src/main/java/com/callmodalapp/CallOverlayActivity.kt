@@ -4,6 +4,7 @@ import android.app.Activity
 import android.graphics.PixelFormat
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.WindowManager
 import android.widget.Button
@@ -30,8 +31,10 @@ class CallOverlayActivity : Activity() {
         params.gravity = Gravity.CENTER
         window.attributes = params
 
+        // Log received data
         val callType = intent.getStringExtra("callType") ?: "Unknown"
         val phoneNumber = intent.getStringExtra("phoneNumber") ?: "Unknown"
+        Log.d("CallOverlayActivity", "Call Type: $callType, Phone Number: $phoneNumber")
 
         findViewById<TextView>(R.id.callTypeText).text = "$callType Call"
         findViewById<TextView>(R.id.phoneNumberText).text = phoneNumber
